@@ -89,6 +89,16 @@ def read_number(prompt, min_value, max_value):
         return number                         # 모두 통과 → 값을 돌려주고 종료
 
 
+def read_text(prompt):
+    """비어 있지 않은 문자열을 입력받아 돌려준다. (앞뒤 공백 제거, 빈 입력이면 다시 묻기)"""
+    while True:
+        text = input(prompt).strip()
+        if text == "":
+            print("⚠ 아무것도 입력하지 않았습니다. 다시 입력하세요.")
+            continue
+        return text
+
+
 def play_quiz():
     """
     저장된 퀴즈를 순서대로 출제하고 정답 여부를 알려 준 뒤 결과를 보여 준다.
@@ -119,7 +129,14 @@ def play_quiz():
 
 
 def add_quiz():
-    print("준비 중입니다.")
+    """새 퀴즈(문제, 선택지 4개, 정답 번호)를 입력받아 목록에 추가한다."""
+    print("\n새로운 퀴즈를 추가합니다.")
+    question = read_text("문제를 입력하세요: ")
+    choices = [read_text(f"선택지 {i}: ") for i in range(1, 5)]
+    answer = read_number("정답 번호 (1~4): ", 1, 4)
+
+    quizzes.append(Quiz(question, choices, answer))
+    print(f"퀴즈가 추가되었습니다! (총 {len(quizzes)}개)")
 
 
 def list_quizzes():
