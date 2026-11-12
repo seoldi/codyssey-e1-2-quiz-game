@@ -140,7 +140,16 @@ def add_quiz():
 
 
 def list_quizzes():
-    print("준비 중입니다.")
+    """등록된 퀴즈의 문제 목록을 보여 준다."""
+    if not quizzes:
+        print("등록된 퀴즈가 없습니다.")
+        return
+
+    print(f"\n등록된 퀴즈 목록 (총 {len(quizzes)}개)")
+    print("-" * 40)
+    for number, quiz in enumerate(quizzes, start=1):
+        print(f"[{number}] {quiz.question}")
+    print("-" * 40)
 
 
 def show_score():
