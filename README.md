@@ -165,3 +165,53 @@ E1-2_quiz-game/
 * ec29c82 Feat: 메뉴 기능 구현 (메뉴 출력, 입력 검증, 종료)
 * c87aa0b Docs: 저장소 초기 설정 (.gitignore, README 뼈대)
 ```
+
+## 9) 실행 화면 (스크린샷)
+> 아래 이미지는 `python main.py`와 git 명령을 **실제로 실행한 출력**을 터미널 모양의 이미지로 저장한 것입니다. (OS 화면 캡처가 아니라 출력 텍스트를 이미지로 렌더링)
+
+### 개발 환경
+Python / Git 버전 (명령과 출력, 경로 `E1-2_quiz-game`):
+
+![Python·Git 버전](docs/screenshots/env-version.png)
+
+Git 설정 (사용자 이름, 기본 브랜치, 원격 저장소):
+
+![Git 설정](docs/screenshots/env-git-config.png)
+
+### 프로그램 실행 결과
+메뉴 화면 (첫 실행, 점수 확인 — 아직 안 푼 경우):
+
+![메뉴](docs/screenshots/menu.png)
+
+퀴즈 추가:
+
+![퀴즈 추가](docs/screenshots/add_quiz.png)
+
+퀴즈 목록 (기본 8개 + 추가 1개):
+
+![퀴즈 목록](docs/screenshots/list.png)
+
+퀴즈 풀기 — 시작부터 문제 2까지:
+
+![퀴즈 풀기](docs/screenshots/play.png)
+
+퀴즈 풀기 — 마지막 문제, 결과, 최고 점수 갱신:
+
+![퀴즈 풀기 결과](docs/screenshots/play-result.png)
+
+점수 확인:
+
+![점수 확인](docs/screenshots/score.png)
+
+재실행 후 데이터 유지 (`저장된 데이터를 불러왔습니다. (퀴즈 9개, 최고 점수 67점)`):
+
+![데이터 유지](docs/screenshots/persist.png)
+
+잘못된 입력 처리 (`abc`, `9`, 빈 입력, `0`, 공백이 낀 `5`):
+
+![잘못된 입력 처리](docs/screenshots/invalid-input.png)
+
+### Git 이력
+`git log --oneline --graph` (브랜치 `feature/play` 생성과 병합이 보임):
+
+![git log graph](docs/screenshots/git-graph.png)
