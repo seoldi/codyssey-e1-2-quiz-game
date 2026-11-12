@@ -1,5 +1,28 @@
 # main.py
 
+
+class Quiz:
+    """퀴즈 한 문제를 표현한다. 문제, 선택지 4개, 정답 번호(1~4)를 가진다."""
+
+    def __init__(self, question, choices, answer):
+        self.question = question
+        self.choices = choices      # 선택지 문자열 4개의 리스트
+        self.answer = answer        # 정답 번호 (1~4)
+
+    def show(self, number=None):
+        """문제와 선택지를 화면에 출력한다."""
+        title = f"[문제 {number}]" if number is not None else "[문제]"
+        print(title)
+        print(self.question)
+        print()
+        for i, choice in enumerate(self.choices, start=1):
+            print(f"{i}. {choice}")
+
+    def is_correct(self, choice):
+        """사용자가 고른 번호가 정답이면 True."""
+        return choice == self.answer
+
+
 def show_menu():
     """메뉴 화면을 출력한다. (반환값 없음)"""
     print("=" * 40)
