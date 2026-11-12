@@ -152,8 +152,23 @@ def list_quizzes():
     print("-" * 40)
 
 
+best_score = None   # 최고 점수. 아직 퀴즈를 풀지 않았으면 None
+
+
+def update_best_score(score):
+    """이번 점수가 최고 점수보다 높으면 갱신하고 안내한다."""
+    global best_score
+    if best_score is None or score > best_score:
+        best_score = score
+        print("새로운 최고 점수입니다!")
+
+
 def show_score():
-    print("준비 중입니다.")
+    """최고 점수를 보여 준다."""
+    if best_score is None:
+        print("아직 퀴즈를 풀지 않았습니다. 먼저 퀴즈를 풀어 보세요.")
+    else:
+        print(f"최고 점수: {best_score}점")
 
 
 def main():
@@ -164,7 +179,9 @@ def main():
             choice = read_number("선택: ", 1, 5)
 
             if choice == 1:
-                play_quiz()
+                score = play_quiz()
+                if score is not None:
+                    update_best_score(score)
             elif choice == 2:
                 add_quiz()
             elif choice == 3:
