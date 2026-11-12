@@ -11,6 +11,10 @@ venv/
 *.pem
 *.token
 
+# 실행 중 생성되는 데이터 파일 (스키마는 README 참고)
+state.json
+state.json.tmp
+
 # 에디터·OS
 .vscode/
 .obsidian/
