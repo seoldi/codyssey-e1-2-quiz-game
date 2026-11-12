@@ -130,3 +130,38 @@ E1-2_quiz-game/
 ```
 
 > clone·pull 실습: 별도 폴더에 clone한 저장소에서 이 줄을 추가해 push하고, 원래 작업 폴더에서 `git pull`로 가져왔습니다.
+
+## 8) Git 작업 기록
+- 커밋 14개 (의미 있는 변경 단위, `Feat:` / `Refactor:` / `Docs:` 형식)
+- 브랜치 `feature/play`를 만들어 퀴즈 풀기 기능을 구현한 뒤 `main`에 **병합**(`git merge --no-ff`)
+
+### 기초 명령 7종 사용 기록
+| 명령 | 사용한 곳 |
+|---|---|
+| `git init` | 작업 폴더를 저장소로 만들 때 (`c87aa0b` 이전) |
+| `git add` | 변경 파일을 담을 때마다 (`git add main.py`, `git add .` 등) |
+| `git commit` | 기능 단위로 기록 (위 14개 커밋) |
+| `git push` | 첫 커밋 이후 기능마다 GitHub에 올림 (`git push -u origin main`) |
+| `git checkout` | `git checkout -b feature/play`로 브랜치 생성, `git checkout main`으로 복귀 |
+| `git clone` | 별도 폴더(`20_실습/E1-2_clone-test`)에 저장소를 복제 |
+| `git pull` | clone한 곳에서 push한 변경을 원래 작업 폴더로 가져옴 (`e61e4c1..bddd7cb`, Fast-forward) |
+
+### 커밋 그래프 (`git log --oneline --graph`)
+```text
+* bddd7cb Docs: clone·pull 실습 기록 추가 (clone한 저장소에서 수정)
+* e61e4c1 Docs: README 작성 (개요, 주제 선정 이유, 실행 방법, 기능, 파일 구조, 데이터 파일 설명)
+* b338207 Feat: state.json 저장/불러오기 구현 (UTF-8, 손상·누락 시 기본 데이터로 복구)
+* 0d56dfc Refactor: QuizGame 클래스로 게임 상태와 기능 책임 분리
+* bb2abaa Feat: 점수 확인 및 최고 점수 갱신 기능 구현
+* 9cb7e2c Feat: 퀴즈 목록 기능 구현 (퀴즈가 없을 때 안내)
+* 6044860 Feat: 퀴즈 추가 기능 구현 (입력 검증 포함)
+*   275e719 Merge: feature/play 브랜치 병합 (퀴즈 풀기 기능)
+|\
+| * 60a1606 Feat: 퀴즈 풀기 결과 화면과 점수 계산 추가
+| * f5f567c Feat: 퀴즈 풀기 기능 구현 (출제, 정답 입력, 정답/오답 안내)
+|/
+* 62e3d92 Feat: 기본 퀴즈 데이터 8개 추가 (Git·Docker·터미널 주제)
+* 618288f Feat: Quiz 클래스 추가 (문제·선택지·정답, 출력, 정답 확인)
+* ec29c82 Feat: 메뉴 기능 구현 (메뉴 출력, 입력 검증, 종료)
+* c87aa0b Docs: 저장소 초기 설정 (.gitignore, README 뼈대)
+```
