@@ -90,7 +90,20 @@ def read_number(prompt, min_value, max_value):
 
 
 def play_quiz():
-    print("준비 중입니다.")
+    """저장된 퀴즈를 순서대로 출제하고 정답 여부를 알려 준다."""
+    if not quizzes:
+        print("등록된 퀴즈가 없습니다. 먼저 퀴즈를 추가하세요.")
+        return
+
+    print(f"\n퀴즈를 시작합니다! (총 {len(quizzes)}문제)")
+    for number, quiz in enumerate(quizzes, start=1):
+        print("-" * 40)
+        quiz.show(number)
+        choice = read_number("정답 입력 (1~4): ", 1, 4)
+        if quiz.is_correct(choice):
+            print("정답입니다!")
+        else:
+            print(f"오답입니다. 정답은 {quiz.answer}번입니다.")
 
 
 def add_quiz():
