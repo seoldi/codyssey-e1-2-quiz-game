@@ -23,6 +23,34 @@ class Quiz:
         return choice == self.answer
 
 
+def create_default_quizzes():
+    """기본 퀴즈 데이터. 주제: Git · Docker · 터미널 기초 (E1-1 복습)"""
+    return [
+        Quiz("변경 내용을 '내 컴퓨터'에 버전으로 기록하는 Git 명령은?",
+             ["git push", "git commit", "git clone", "git pull"], 2),
+        Quiz("컨테이너를 삭제해도 데이터가 남게 하려면 무엇을 연결해야 할까?",
+             ["EXPOSE", "COPY", "볼륨(volume)", "환경변수"], 3),
+        Quiz("docker run -p 8080:80 에서 8080은 무엇의 포트인가?",
+             ["호스트(내 컴퓨터)의 포트", "컨테이너 안의 포트", "이미지 버전", "프로세스 번호"], 1),
+        Quiz("chmod 755 가 의미하는 권한 표기는?",
+             ["rw-r--r--", "rwx------", "rw-------", "rwxr-xr-x"], 4),
+        Quiz("Git과 GitHub의 관계로 옳은 것은?",
+             ["GitHub는 내 컴퓨터에 설치하는 버전 관리 도구다",
+              "Git은 인터넷 서비스이고 GitHub는 프로그램이다",
+              "GitHub는 Git 기록을 올려 두고 협업하는 원격 서비스다",
+              "둘은 완전히 같은 것이다"], 3),
+        Quiz("이미지를 실행한 것을 무엇이라고 부를까?",
+             ["컨테이너", "Dockerfile", "볼륨", "레지스트리"], 1),
+        Quiz("리눅스에서 '한 단계 위 폴더'를 가리키는 상대 경로 기호는?",
+             [".", "~", "/", ".."], 4),
+        Quiz("원격 저장소를 처음 통째로 내 컴퓨터로 받아 오는 명령은?",
+             ["git pull", "git add", "git clone", "git init"], 3),
+    ]
+
+
+quizzes = create_default_quizzes()   # 현재 게임의 퀴즈 목록
+
+
 def show_menu():
     """메뉴 화면을 출력한다. (반환값 없음)"""
     print("=" * 40)
