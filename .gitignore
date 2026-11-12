@@ -1,0 +1,18 @@
+# 파이썬
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# 비밀값·인증 정보 (절대 올리지 않기)
+.env
+.env.*
+*.key
+*.pem
+*.token
+
+# 에디터·OS
+.vscode/
+.obsidian/
+.DS_Store
+Thumbs.db
